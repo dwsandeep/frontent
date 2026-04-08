@@ -63,19 +63,33 @@ export const DriverAuthProvider = ({ children }: { children: React.ReactNode }) 
 
     useEffect(() => {
         const checkAuth = async () => {
-            if (pb.authStore.isValid && pb.authStore.model?.role === 'driver') {
-                try {
-                    await pb.collection('users').authRefresh();
-                    // Fetch associated driver profile
-            const driverRecord = await pb.collection('drivers').getFirstListItem<Driver>(`userId="${pb.authStore.model.id}"`, { $autoCancel: false });
-                    setCurrentDriver(driverRecord);
-                } catch (error) {
-                    console.error("Auth check failed:", error);
-                    pb.authStore.clear();
-                    setCurrentDriver(null);
-                }
+            if (typeof window === 'undefined') {
+                setLoading(false);
+                return;
             }
-            setLoading(false);
+            try {
+                // Add timeout to prevent hanging
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Auth timeout')), 5000)
+                );
+                
+                const authPromise = (async () => {
+                    if (pb.authStore.isValid && pb.authStore.model?.role === 'driver') {
+                        await pb.collection('users').authRefresh();
+                        // Fetch associated driver profile
+                        const driverRecord = await pb.collection('drivers').getFirstListItem<Driver>(`userId="${pb.authStore.model.id}"`, { $autoCancel: false });
+                        setCurrentDriver(driverRecord);
+                    }
+                })();
+                
+                await Promise.race([authPromise, timeoutPromise]);
+            } catch (error) {
+                console.error("Auth check failed:", error);
+                pb.authStore.clear();
+                setCurrentDriver(null);
+            } finally {
+                setLoading(false);
+            }
         };
 
         checkAuth();
