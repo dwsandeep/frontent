@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Header from '@/components/Header.simple'
+import Header from '@/components/Header'
 import AppStoreFooter from '@/components/AppStoreFooter'
 import { Shield, Eye, Database, User, Lock, Globe } from 'lucide-react'
 

@@ -1,4 +1,4 @@
-import Header from '@/components/Header.simple';
+import Header from '@/components/Header';
 import AppStoreFooter from '@/components/AppStoreFooter';
 import BlogSection from '@/components/BlogSection';
 
