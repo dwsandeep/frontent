@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '@/components/Header.simple';
 import SignupPage from '../pages/SignupPage';
 import AppStoreFooter from '@/components/AppStoreFooter';
 

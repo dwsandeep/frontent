@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Calendar, User, Clock, Tag } from 'lucide-react';
 import { getPostBySlug, getAllPostSlugs } from '@/service/blogs';
-import Header from '@/components/Header';
+import Header from '@/components/Header.simple';
 
 interface FAQ {
   question: string;
