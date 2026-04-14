@@ -1,27 +1,29 @@
-
 import React from 'react';
-import { Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+// import { Facebook, Instagram, Play, TwitterX } from 'lucide-react';
 
 const SocialLinks = () => {
   const socials = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' }
+    {  href: '#', label: 'Twitter' },
+    {  href: 'https://www.facebook.com/drivrindia/', label: 'Facebook' },
+    {  href: 'https://www.instagram.com/drivr.india/', label: 'Instagram' },
+    {  href: 'https://www.youtube.com/@DrivrIndia/', label: 'YouTube' }
   ];
 
   return (
-    <div className="flex items-center justify-center gap-4 mt-12">
+    <div className="flex gap-4">
       {socials.map((social, index) => {
         const Icon = social.icon;
         return (
           <a
             key={index}
             href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={social.label}
-            className="w-10 h-10 rounded-full bg-[#E8F0F8] flex items-center justify-center text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white transition-all shadow-sm"
+            className="text-slate-500 hover:text-primary text-sm font-medium transition-colors flex items-center gap-1"
           >
-            <Icon className="w-5 h-5" />
+            {/* <Icon className="w-4 h-4" /> */}
+            {social.label}
           </a>
         );
       })}

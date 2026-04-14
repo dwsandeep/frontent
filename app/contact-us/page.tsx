@@ -29,21 +29,21 @@ export default function ContactUsPage() {
     {
       icon: Phone,
       title: 'Phone Support',
-      details: ['+91-XXX-XXX-XXXX', '+91-XXX-XXX-XXXX (Business)'],
+      details: ['+91 9203602209'],
       description: 'Available 24/7 for emergency bookings and support',
       action: 'Call Now'
     },
     {
       icon: Mail,
       title: 'Email Support',
-      details: ['support@drivr.co.in', 'bookings@drivr.co.in'],
+      details: ['support@drivr.co.in'],
       description: 'Response within 24 hours for all inquiries',
       action: 'Send Email'
     },
     {
       icon: MapPin,
       title: 'Office Locations',
-      details: ['Mumbai, Maharashtra', 'Delhi, NCR', 'Bangalore, Karnataka'],
+      details: ['Indore, 452010'],
       description: 'Visit our offices for in-person consultations',
       action: 'Get Directions'
     },
@@ -61,21 +61,21 @@ export default function ContactUsPage() {
       icon: Users,
       title: 'Customer Support',
       email: 'support@drivr.co.in',
-      phone: '+91-XXX-XXX-XXXX',
+      phone: '+91 9203602209',
       description: 'For booking issues, driver concerns, and general inquiries'
     },
     {
       icon: Building,
       title: 'Business Partnerships',
       email: 'partnerships@drivr.co.in',
-      phone: '+91-XXX-XXX-XXXX',
+      phone: '+91 9203602209',
       description: 'For corporate accounts, fleet partnerships, and B2B services'
     },
     {
       icon: HelpCircle,
       title: 'Technical Support',
       email: 'tech@drivr.co.in',
-      phone: '+91-XXX-XXX-XXXX',
+      phone: '+91 9203602209',
       description: 'For app issues, website problems, and technical assistance'
     }
   ]
@@ -279,7 +279,7 @@ export default function ContactUsPage() {
                   For urgent driver needs or emergency situations, call our 24/7 hotline
                 </p>
                 <div className="bg-white/10 rounded-lg p-4 inline-block">
-                  <p className="text-2xl font-bold mb-2">+91-XXX-XXX-XXXX</p>
+                  <p className="text-2xl font-bold mb-2">+91 9203602209</p>
                   <p className="text-red-100">Available 24/7 for emergencies</p>
                 </div>
               </div>

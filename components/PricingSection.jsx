@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -80,13 +80,13 @@ const PricingSection = () => {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
+              {/* <CardFooter>
                 <Button
                   className={`w-full shadow-sm ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'}`}
                 >
                   Select {plan.name}
                 </Button>
-              </CardFooter>
+              </CardFooter> */}
             </Card>
           ))}
         </div>

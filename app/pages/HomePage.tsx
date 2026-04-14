@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Clock, Calendar, CalendarDays, Briefcase, Smartphone, MapPin, CheckCircle, ThumbsUp, ShieldCheck, Zap, DollarSign, Headphones as HeadphonesIcon, ArrowRight, CheckCircle2, Download } from 'lucide-react';
@@ -14,6 +15,7 @@ import BlogSection from '@/components/BlogSection';
 import DownloadAppSection from '@/components/DownloadAppSection';
 
 export default function HomePage() {
+  const router = useRouter();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -275,7 +277,7 @@ export default function HomePage() {
 
               <Button
                 size="lg"
-                onClick={() => window.location.href = '/driver-signup'}
+                onClick={() => router.push('/become-a-driver')}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg h-14 px-10 rounded-md shadow-lg transition-all"
               >
                 Apply to Drive
