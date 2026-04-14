@@ -1,7 +1,9 @@
-import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+"use client";
+import React, { useState } from 'react';
 
 const FAQSection = () => {
+  const [openItem, setOpenItem] = useState(null);
   const faqs = [
     {
       question: "How do I book a driver?",
@@ -40,7 +42,7 @@ const FAQSection = () => {
   return (
     <div className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
      
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Frequently Asked Questions</h2>
           <p className="text-slate-600 text-lg">
@@ -48,22 +50,62 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`} 
-              className="bg-slate-50 border border-slate-200 rounded-lg px-6 data-[state=open]:border-primary data-[state=open]:bg-white transition-all shadow-sm"
-            >
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-900 hover:text-primary hover:no-underline py-6">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            {faqs.filter((_, index) => index % 2 === 0).map((faq, index) => {
+              const itemIndex = index * 2;
+              return (
+                <div key={itemIndex} className={`bg-slate-50 border rounded-lg px-6 transition-all shadow-sm ${
+                  openItem === itemIndex 
+                    ? 'border-primary bg-white' 
+                    : 'border-slate-200'
+                }`}>
+                  <button
+                    onClick={() => setOpenItem(openItem === itemIndex ? null : itemIndex)}
+                    className="w-full text-left text-lg font-medium text-slate-900 hover:text-primary py-6 flex justify-between items-center"
+                  >
+                    {faq.question}
+                    <svg className={`w-5 h-5 transition-transform ${openItem === itemIndex ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openItem === itemIndex && (
+                    <div className="text-slate-600 text-base leading-relaxed pb-6">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div className="space-y-4">
+            {faqs.filter((_, index) => index % 2 === 1).map((faq, index) => {
+              const itemIndex = index * 2 + 1;
+              return (
+                <div key={itemIndex} className={`bg-slate-50 border rounded-lg px-6 transition-all shadow-sm ${
+                  openItem === itemIndex 
+                    ? 'border-primary bg-white' 
+                    : 'border-slate-200'
+                }`}>
+                  <button
+                    onClick={() => setOpenItem(openItem === itemIndex ? null : itemIndex)}
+                    className="w-full text-left text-lg font-medium text-slate-900 hover:text-primary py-6 flex justify-between items-center"
+                  >
+                    {faq.question}
+                    <svg className={`w-5 h-5 transition-transform ${openItem === itemIndex ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openItem === itemIndex && (
+                    <div className="text-slate-600 text-base leading-relaxed pb-6">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

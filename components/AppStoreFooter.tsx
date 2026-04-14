@@ -2,6 +2,7 @@
 
 import { Download } from "lucide-react";
 import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 
 export default function AppStoreFooter() {
   return (
@@ -55,7 +56,7 @@ export default function AppStoreFooter() {
                     { text: 'About Us', href: '/about' },
                     { text: 'Driver Rental Services', href: '/service' },
                     { text: 'How It Works', href: '/how-it-works' },
-                    { text: 'Become a Driver', href: '#' },
+                    { text: 'Become a Driver', href: '/become-a-driver' },
                     { text: 'Contact Us', href: '/contact-us' }
                   ].map((link) => (
                     <li key={link.text}>
@@ -79,8 +80,8 @@ export default function AppStoreFooter() {
                   {[
                     { text: 'Terms of Service', href: '/terms-of-service' },
                     { text: 'Privacy Policy', href: '/privacy-policy' },
-                    { text: 'Insurance Policy', href: '#' },
-                    { text: 'Safety Guidelines', href: '#' }
+                    // { text: 'Insurance Policy', href: '#' },
+                    { text: 'Safety Guidelines', href: '/safety-guidelines' }
                   ].map((link) => (
                     <li key={link.text}>
                       {link.href === '#' ? (
@@ -101,23 +102,17 @@ export default function AppStoreFooter() {
                 <h4 className="text-lg font-bold mb-6 text-white">Contact Us</h4>
                 <ul className="space-y-4 text-slate-400">
                   <li>support@drivr.co.in</li>
-                  <li>+91 9424302209</li>
-                  <li>Dewas Naka, Nipaniya Road<br />Madhya Pradesh Indore, 452010</li>
+                  <li>+91 9203602209</li>
+                  <li>Indore, 452010</li>
                 </ul>
               </div>
             </div>
     
             <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-slate-500 text-sm">
-                &copy; {new Date().getFullYear()} drivr Technologies Inc. All rights reserved.
-              </p>
-              <div className="flex gap-4">
-                {['Twitter', 'LinkedIn', 'Instagram', 'Facebook'].map((social) => (
-                  <a key={social} href="#" className="text-slate-500 hover:text-primary text-sm font-medium transition-colors">
-                    {social}
-                  </a>
-                ))}
-              </div>
+                &copy; {new Date().getFullYear()} drivr labs. All rights reserved.
+              </p>      
+              <SocialLinks />
             </div>
           </div>
         </footer>
